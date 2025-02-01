@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "admin",
+    "password": "admin",
     "database": "teste",
-    "host": "127.0.0.1",
+    "host": "3.80.195.95",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "admin",
+    "password": "admin",
     "database": "teste",
-    "host": "127.0.0.1",
+    "host": "3.80.195.95",
     "dialect": "postgres"
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "admin",
+    "password": "admin",
     "database": "teste",
-    "host": "127.0.0.1",
+    "host": "3.80.195.95",
     "dialect": "postgres"
   }
 }
