@@ -1,7 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./routes/users");
+const sequelize = require("./config/sequelize");
 
+sequelize.sync({ force: false }) // Alterar para `true` se quiser recriar tabelas
+    .then(() => console.log("Banco de dados sincronizado!"))
+    .catch(err => console.error("Erro ao sincronizar o banco:", err));
 
 const app = express();
 app.use(cors());

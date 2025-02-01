@@ -1,4 +1,4 @@
-const pool = require("../config/db");
+const pool = require("../config/sequelize");
 
 // Buscar todos os usuários
 const getUsers = async (req, res) => {
