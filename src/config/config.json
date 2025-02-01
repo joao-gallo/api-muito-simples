@@ -3,21 +3,21 @@
     "username": "admin",
     "password": "admin",
     "database": "teste",
-    "host": "3.80.195.95",
+    "host": "3.80.21.174",
     "dialect": "postgres"
   },
   "test": {
-    "username": "admin",
-    "password": "admin",
+    "username": "postgres",
+    "password": "123456",
     "database": "teste",
-    "host": "3.80.195.95",
+    "host": "3.80.21.174",
     "dialect": "postgres"
   },
   "production": {
-    "username": "admin",
-    "password": "admin",
+    "username": "postgres",
+    "password": "123456",
     "database": "teste",
-    "host": "3.80.195.95",
+    "host": "3.80.21.174",
     "dialect": "postgres"
   }
 }
