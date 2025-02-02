@@ -1,6 +1,8 @@
 const pool = require("../config/sequelize");
 const User = require("../models/User");
-
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+require("dotenv").config();
 
 // Buscar todos os usuários
 const getUsers = async (req, res) => {
@@ -62,6 +64,29 @@ const deleteUser = async (req, res) => {
     }
 };
 
+const loginUser = async (req, res) => {
+    const { email, password } = req.body;
 
+    try {
+        const user = await User.findOne({ where: { email } });
 
-module.exports = { getUsers, createUser, updateUser, deleteUser };
+        if (!user) {
+            return res.status(404).json({ message: "Usuário não encontrado" });
+        }
+
+        if (!user.checkPassword(password)) {
+            return res.status(401).json({ message: "Senha incorreta" });
+        }
+
+        const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, {
+            expiresIn: "1h",
+        });
+
+        res.json({ token, user });
+    } catch (error) {
+        console.error("Erro ao fazer login:", error);
+        res.status(500).json({ message: "Erro ao fazer login" });
+    }
+};
+
+module.exports = { getUsers, createUser, updateUser, deleteUser, loginUser };
